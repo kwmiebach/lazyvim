@@ -40,8 +40,29 @@ chmod +x nvim-linux-x86_64.appimage
 
 ```
 sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
+sudo rm /usr/local/bin/vim
+sudo ln -s /usr/local/bin/nvim /usr/local/bin/vim
 nvim --version
+vim --version
 ```
+
+###  Download and install config
+
+```
+git clone git@github.com:kwmiebach/lazyvim.git ~/.config/nvim
+# First run to install plugins
+nvim --headless "+Lazy! sync" +qa
+```
+
+Then launch Neovim: `nvim`
+
+###n Adjust config
+
+```
+ln -s ~/.config/nvim/lua/config/options.lua ~/options.lua
+```
+
+`vim ~/options.lua`
 
 # Original README.md
 
