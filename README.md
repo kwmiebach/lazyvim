@@ -27,6 +27,22 @@ rm -rf ~/.vim ~/.vimrc ~/.gvimrc
 
 ```
 
+### Donload and install Neovim
+
+```
+sudo rm /usr/local/bin/nvim
+sudo apt install -y libfuse2t64
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.appimage
+chmod +x nvim-linux-x86_64.appimage
+./nvim-linux-x86_64.appimage --version
+```
+
+
+```
+sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
+nvim --version
+```
+
 # Original README.md
 
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
