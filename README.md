@@ -4,6 +4,8 @@ Current repository: https://github.com/kwmiebach/lazyvim
 
 ## Ubuntu 24.04
 
+**Warning: These are destructive operations. Make sure to have backups for everything.***
+
 ### Get rid of previous installations and config
 
 Remove previous isntallations
