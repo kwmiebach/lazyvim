@@ -43,6 +43,16 @@ sudo mv nvim-linux-x86_64.appimage /usr/local/bin/nvim
 nvim --version
 ```
 
+###  Download and install config
+
+```
+git clone git@github.com:kwmiebach/lazyvim.git ~/.config/nvim
+# First run to install plugins
+nvim --headless "+Lazy! sync" +qa
+```
+
+Then launch Neovim: `nvim`
+
 # Original README.md
 
 A starter template for [LazyVim](https://github.com/LazyVim/LazyVim).
