@@ -63,7 +63,7 @@ The installation may take several minutes. Mason will automatically retry failed
 
 Then launch Neovim: `nvim`
 
-###n Adjust config
+### Adjust config
 
 ```
 ln -s ~/.config/nvim/lua/config/options.lua ~/options.lua
