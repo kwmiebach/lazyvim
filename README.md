@@ -17,14 +17,13 @@ sudo snap remove vim nvim neovim 2>/dev/null && echo "Removed snap packages" || 
 echo "Checking PATH..."
 which -a vim vi nvim neovim 2>/dev/null && echo "Found vim/neovim executables in PATH" || echo "No vim/neovim executables found in PATH"
 echo "Checking for executables..."
-if find /usr/bin /usr/local/bin /opt -name "vim" -o -name "vi" -o -name "nvim" -o -name "neovim" 2>/dev/null | grep -q .; then echo "Found vim/neovim executables in system"; else echo "No vim/neovim executables found in system"; fi
 ```
 
 Remove previous configurations
 
 ```
 rm -rf ~/.vim ~/.vimrc ~/.gvimrc
-
+rm -rf ~/.config/nvim ~/.local/share/nvim ~/.local/state/nvim ~/.cache/nvim
 ```
 
 ### Donload and install Neovim
@@ -53,6 +52,14 @@ git clone git@github.com:kwmiebach/lazyvim.git ~/.config/nvim
 # First run to install plugins
 nvim --headless "+Lazy! sync" +qa
 ```
+
+If the initial plugin sync is interrupted and you see Mason installation failures or tree-sitter CLI errors, run the sync command again:
+
+```
+nvim --headless "+Lazy! sync" +qa
+```
+
+The installation may take several minutes. Mason will automatically retry failed package installations.
 
 Then launch Neovim: `nvim`
 
