@@ -6,6 +6,10 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes"
 
+-- Disable concealment globally - show all text as-is
+vim.opt.conceallevel = 0
+vim.opt.concealcursor = ""
+
 -- Custom hybrid line numbers: absolute for ±3 lines around cursor with color
 vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "BufEnter", "WinEnter" }, {
   callback = function()
