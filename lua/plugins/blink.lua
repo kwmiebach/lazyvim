@@ -1,15 +1,25 @@
 -- ~/.config/nvim/lua/plugins/blink.lua
 --
--- Reverts capturing of Tab/Enter keys by blink.cmp completion popups.
+-- Manual trigger only - no automatic popups!
 -- Prevents autocomplete from interfering with normal typing flow.
--- Completions now require explicit accept with Ctrl+Y instead.
+-- Use Ctrl+Space to manually trigger completions when needed.
+-- Accept completions with Ctrl+Y.
 
 return {
   {
     "saghen/blink.cmp",
     opts = {
+      completion = {
+        menu = {
+          -- Disable automatic popup - only show when manually triggered
+          auto_show = false,
+        },
+      },
       keymap = {
         preset = "none", -- Start with no preset to define our own mappings
+
+        -- Manually trigger completion with Ctrl+Space
+        ["<C-Space>"] = { "show", "fallback" },
 
         -- Accept completion ONLY with Ctrl+Y
         ["<C-y>"] = { "accept", "fallback" },
