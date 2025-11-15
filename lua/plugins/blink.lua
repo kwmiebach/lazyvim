@@ -14,6 +14,10 @@ return {
           -- Disable automatic popup - only show when manually triggered
           auto_show = false,
         },
+        ghost_text = {
+          -- Disable ghost text (inline dimmed completions)
+          enabled = false,
+        },
       },
       keymap = {
         preset = "none", -- Start with no preset to define our own mappings
