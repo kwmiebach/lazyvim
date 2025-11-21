@@ -3,18 +3,22 @@
 -- Add any additional keymaps here
 
 -- Optimize PageUp/PageDown for instant scrolling without intermediate redraws
--- Using Ctrl-U/D with full page counts for faster response
-vim.keymap.set({"n", "v"}, "<PageUp>", "<C-U><C-U>", { desc = "Page up fast", silent = true, noremap = true })
-vim.keymap.set({"n", "v"}, "<PageDown>", "<C-D><C-D>", { desc = "Page down fast", silent = true, noremap = true })
+-- Use direct cursor positioning for true instant jump
+vim.keymap.set({"n", "v"}, "<PageUp>", function()
+  local current_line = vim.fn.line('.')
+  local win_height = vim.fn.winheight(0)
+  local target_line = math.max(1, current_line - win_height)
+  vim.api.nvim_win_set_cursor(0, {target_line, 0})
+end, { desc = "Jump page up instantly", silent = true, noremap = true })
 
--- Alternative: Use direct line jumping for even faster response
--- This jumps exactly one screen height without any animation
-vim.keymap.set({"n", "v"}, "<S-PageUp>", function()
-  local lines = vim.fn.winheight(0)
-  vim.cmd("normal! " .. lines .. "k")
-end, { desc = "Jump page up", silent = true, noremap = true })
+vim.keymap.set({"n", "v"}, "<PageDown>", function()
+  local current_line = vim.fn.line('.')
+  local win_height = vim.fn.winheight(0)
+  local last_line = vim.fn.line('$')
+  local target_line = math.min(last_line, current_line + win_height)
+  vim.api.nvim_win_set_cursor(0, {target_line, 0})
+end, { desc = "Jump page down instantly", silent = true, noremap = true })
 
-vim.keymap.set({"n", "v"}, "<S-PageDown>", function()
-  local lines = vim.fn.winheight(0)
-  vim.cmd("normal! " .. lines .. "j")
-end, { desc = "Jump page down", silent = true, noremap = true })
+-- Alternative: Using Ctrl-U/D with full page counts
+vim.keymap.set({"n", "v"}, "<S-PageUp>", "<C-U><C-U>", { desc = "Page up alt", silent = true, noremap = true })
+vim.keymap.set({"n", "v"}, "<S-PageDown>", "<C-D><C-D>", { desc = "Page down alt", silent = true, noremap = true })

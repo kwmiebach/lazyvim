@@ -2,6 +2,14 @@
 return {
   "folke/noice.nvim",
   opts = {
+    -- Disable scroll-related features that interfere with performance
+    health = {
+      checker = false, -- Disable health checks including lazyredraw warning
+    },
+    presets = {
+      bottom_search = false, -- Don't move search to bottom
+      long_message_to_split = false, -- Don't redirect long messages
+    },
     views = {
       -- Confirmation dialogs (y/n/cancel)
       confirm = {

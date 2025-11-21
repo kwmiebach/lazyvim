@@ -10,7 +10,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.smoothscroll = false
 
 -- Performance optimizations for faster scrolling
-vim.opt.lazyredraw = true -- Don't redraw screen during macros, registers and other commands
+-- vim.opt.lazyredraw = true -- Disabled: conflicts with Noice.nvim
 vim.opt.redrawtime = 100 -- Time in milliseconds for redrawing the display
 vim.opt.updatetime = 100 -- Faster completion and better user experience
 vim.opt.timeout = true
