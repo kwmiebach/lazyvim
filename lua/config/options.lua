@@ -6,6 +6,24 @@ vim.opt.relativenumber = true
 vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes"
 
+-- Disable smooth scrolling for instant scrolling
+vim.opt.smoothscroll = false
+
+-- Performance optimizations for faster scrolling
+vim.opt.lazyredraw = true -- Don't redraw screen during macros, registers and other commands
+vim.opt.redrawtime = 100 -- Time in milliseconds for redrawing the display
+vim.opt.updatetime = 100 -- Faster completion and better user experience
+vim.opt.timeout = true
+vim.opt.timeoutlen = 300 -- Faster key sequence completion
+vim.opt.ttimeout = true
+vim.opt.ttimeoutlen = 10 -- Make escape key more responsive
+
+-- Additional performance settings for instant scrolling
+vim.opt.ttyfast = true -- Assume fast terminal connection
+vim.opt.scrolljump = 5 -- Lines to scroll when cursor leaves screen
+vim.opt.scrolloff = 3 -- Minimum lines to keep above/below cursor
+vim.opt.sidescrolloff = 5 -- Minimum columns to keep left/right of cursor
+
 -- Disable concealment globally - show all text as-is
 vim.opt.conceallevel = 0
 vim.opt.concealcursor = ""
